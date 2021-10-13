@@ -7,6 +7,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import {
   DebugInstructions,
@@ -52,6 +53,7 @@ const App = () => {
 
   return (
     <SafeAreaView style={backgroundStyle}>
+      <Icon name="rocket" size={30} color="#900" />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
