@@ -27,14 +27,16 @@ export const ArticleItem = ({
       paddingBottom="3px"
       paddingLeft="3px"
       borderBottomColor={Colors.separatorGrey}
-      borderBottomWidth="2px">
+      borderBottomWidth="2px"
+    >
       <StyledBox flexDirection="row" alignItems="center">
         <StyledBox
           paddingTop="10px"
           paddingRight="10px"
           paddingBottom="10px"
           paddingLeft="10px"
-          boxShadow={`0 2px 0 ${Colors.lightGrey}`}>
+          boxShadow={`0 2px 0 ${Colors.lightGrey}`}
+        >
           <StyledImage source={image} width="70px" height="70px" />
         </StyledBox>
 
@@ -60,12 +62,14 @@ export const ArticleItem = ({
         flexDirection="row"
         alignItems="center"
         justifyContent="center"
-        width="50%">
+        width="50%"
+      >
         <StyledBox
           backgroundColor={Colors.green}
           width="50%"
           borderRadius="10px"
-          alignItems="center">
+          alignItems="center"
+        >
           <StyledText color={Colors.white}>{count}</StyledText>
         </StyledBox>
 
@@ -73,7 +77,8 @@ export const ArticleItem = ({
           paddingTop="20px"
           paddingRight="20px"
           paddingBottom="20px"
-          paddingLeft="20px">
+          paddingLeft="20px"
+        >
           <Icon
             name="keyboard-arrow-right"
             size={22}

@@ -16,14 +16,16 @@ export const HeaderComponent = () => {
         paddingRight="10px"
         paddingBottom="10px"
         paddingLeft="10px"
-        bgColor={Colors.lightGrey}>
+        bgColor={Colors.lightGrey}
+      >
         <StyledBox flexDirection="row" alignItems="center">
           <AwesomeIcon name="box" size={20} color={Colors.darkGrey} />
           <StyledText
             padding="4px"
             fontSize="12px"
             fontWeight="bold"
-            color={Colors.greyForText}>
+            color={Colors.greyForText}
+          >
             259870984802938401928374012
           </StyledText>
         </StyledBox>
@@ -34,7 +36,8 @@ export const HeaderComponent = () => {
             padding="4px"
             fontSize="12px"
             fontWeight="bold"
-            color={Colors.greyForText}>
+            color={Colors.greyForText}
+          >
             9
           </StyledText>
         </StyledBox>
@@ -45,17 +48,20 @@ export const HeaderComponent = () => {
         alignItems="center"
         justifyContent="space-between"
         paddingLeft="5px"
-        paddingRight="70px">
+        paddingRight="70px"
+      >
         <StyledText
           textTransform="uppercase"
           padding="12px"
-          color={Colors.greyForText}>
+          color={Colors.greyForText}
+        >
           {strings.article}
         </StyledText>
         <StyledText
           textTransform="uppercase"
           padding="12px"
-          color={Colors.greyForText}>
+          color={Colors.greyForText}
+        >
           {strings.act}
         </StyledText>
       </StyledBox>
