@@ -1,11 +1,11 @@
 import React from 'react';
-import {View, FlatList} from 'react-native';
+import {FlatList, StyleSheet} from 'react-native';
 
-import {styles} from './styles.js';
 import {ArticlesScreenHeader, ArticleItem} from '../../components';
 import {mockArticles} from '../../mockdata/mockArticles';
 import {HeaderComponent} from './HeaderComponent';
 import {FooterComponent} from './FooterComponent';
+import {StyledFlexContainer} from './styled-components';
 
 export const ArticlesList = () => {
   const renderItem = ({item}) => <ArticleItem {...item} />;
@@ -13,7 +13,7 @@ export const ArticlesList = () => {
   const keyExtractor = ({id}) => id;
 
   return (
-    <View style={styles.container}>
+    <StyledFlexContainer>
       <ArticlesScreenHeader />
       <FlatList
         data={mockArticles}
@@ -24,6 +24,16 @@ export const ArticlesList = () => {
         ListFooterComponentStyle={styles.footerComponent}
         contentContainerStyle={styles.contentContainer}
       />
-    </View>
+    </StyledFlexContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  contentContainer: {
+    flexGrow: 1,
+  },
+  footerComponent: {
+    flex: 1,
+    justifyContent: 'flex-end',
+  },
+});

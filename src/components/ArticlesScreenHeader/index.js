@@ -1,31 +1,39 @@
 import React from 'react';
-import {Text, View, TouchableOpacity} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 
 import {Colors, strings} from '../../constants';
-import {styles} from './styles.js';
+import {
+  StyledScreenContainer,
+  IconsBlock,
+  IconWithTextBlock,
+  IconText,
+  ButtonsBlock,
+  ButtonText,
+  TitleText,
+} from './styled-components';
 
 export const ArticlesScreenHeader = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.iconsBlock}>
-        <View style={styles.iconWithTextBlock}>
+    <StyledScreenContainer>
+      <IconsBlock>
+        <IconWithTextBlock>
           <Ionicon name="bluetooth" size={50} color={Colors.darkGrey} />
-          <Text style={styles.iconText}>100%</Text>
-        </View>
+          <IconText>100%</IconText>
+        </IconWithTextBlock>
         <Icon name="wifi-tethering" size={50} color={Colors.darkGrey} />
         <Ionicon name="cloud-done-outline" size={50} color={Colors.darkGrey} />
-      </View>
-      <View style={styles.buttonsBlock}>
+      </IconsBlock>
+      <ButtonsBlock>
         <TouchableOpacity>
-          <Text style={styles.buttonText}>{strings.cancel}</Text>
+          <ButtonText>{strings.cancel}</ButtonText>
         </TouchableOpacity>
-        <Text style={styles.titleText}>{strings.articlesInCarton}</Text>
+        <TitleText>{strings.articlesInCarton}</TitleText>
         <TouchableOpacity>
-          <Text style={styles.buttonText}>{strings.confirm}</Text>
+          <ButtonText>{strings.confirm}</ButtonText>
         </TouchableOpacity>
-      </View>
-    </View>
+      </ButtonsBlock>
+    </StyledScreenContainer>
   );
 };
