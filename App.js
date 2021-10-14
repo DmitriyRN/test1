@@ -1,11 +1,12 @@
 import React from 'react';
 
 import {ArticlesList} from './src/screens';
-import {StyledSafeAreaView} from './src/common-styled-components/styled-components';
+import {StyledSafeAreaView} from './src/common-styled-components';
+import {Colors} from './src/constants';
 
 const App = () => {
   return (
-    <StyledSafeAreaView>
+    <StyledSafeAreaView flex={1} bgColor={Colors.lightGrey}>
       <ArticlesList />
     </StyledSafeAreaView>
   );
