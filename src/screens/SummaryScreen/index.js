@@ -17,6 +17,18 @@ import {Colors, strings} from '../../constants';
 
 export const SummaryScreen = () => {
   const [currentList, setCurrentList] = useState(strings.cartons);
+  const [articles, setArticles] = useState(mockArticles);
+  const [cartons, setCartons] = useState(mockCartons);
+
+  const deleteItem = id => {
+    if (currentList === strings.cartons) {
+      setCartons(cartons.filter(item => item.id !== id));
+    }
+
+    if (currentList === strings.articles) {
+      setArticles(articles.filter(item => item.id !== id));
+    }
+  };
 
   const handleSegmentControl = index => {
     index === 0
@@ -30,20 +42,22 @@ export const SummaryScreen = () => {
 
   const QuickActions = (index, qaItem) => {
     return (
-      <StyledBox flex={1} flexDirection="row" justifyContent="flex-end">
+      <StyledBox
+        flex={1}
+        flexDirection="row"
+        justifyContent="flex-end"
+        as={StyledTouchableOpacity}
+        onPress={() => deleteItem(qaItem.id)}
+      >
         <StyledBox
           width="80px"
           alignItems="center"
           justifyContent="center"
           bgColor={Colors.red}
         >
-          <StyledTouchableOpacity
-            onPress={() => console.log('delete: ' + qaItem.id)}
-          >
-            <StyledText fontWeight="bold" color={Colors.white} fontSize="16px">
-              {strings.delete}
-            </StyledText>
-          </StyledTouchableOpacity>
+          <StyledText fontWeight="bold" color={Colors.white} fontSize="16px">
+            {strings.delete}
+          </StyledText>
         </StyledBox>
       </StyledBox>
     );
@@ -59,7 +73,7 @@ export const SummaryScreen = () => {
       />
       {currentList === strings.articles ? (
         <SwipeableFlatList
-          data={mockArticles}
+          data={articles}
           renderItem={renderItem}
           keyExtractor={keyExtractor}
           maxSwipeDistance={80}
@@ -68,7 +82,7 @@ export const SummaryScreen = () => {
         />
       ) : (
         <SwipeableFlatList
-          data={mockCartons}
+          data={cartons}
           renderItem={renderItem}
           keyExtractor={keyExtractor}
           ListFooterComponent={() => (
