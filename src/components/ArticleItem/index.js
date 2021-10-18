@@ -16,7 +16,42 @@ export const ArticleItem = ({
   description,
   size,
   image,
+  cartonNo,
 }) => {
+  if (cartonNo) {
+    return (
+      <StyledBox
+        as={Pressable}
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="flex-end"
+        paddingTop="3px"
+        paddingBottom="3px"
+        paddingLeft="3px"
+        borderBottomColor={Colors.separatorGrey}
+        borderBottomWidth="2px"
+        bgColor={Colors.white}
+      >
+        <StyledText fontSize="14px" color={Colors.black} paddingRight="20px">
+          {cartonNo}
+        </StyledText>
+
+        <StyledBox
+          backgroundColor={Colors.greyForText}
+          width="25%"
+          borderRadius="10px"
+          alignItems="center"
+        >
+          <StyledText color={Colors.white}>{count}</StyledText>
+        </StyledBox>
+
+        <StyledBox paddingTop="20px" paddingBottom="20px">
+          <ArrowRight width={22} height={22} color={Colors.greyForText} />
+        </StyledBox>
+      </StyledBox>
+    );
+  }
+
   return (
     <StyledBox
       as={Pressable}
@@ -76,9 +111,9 @@ export const ArticleItem = ({
 
         <StyledBox
           paddingTop="20px"
-          paddingRight="20px"
+          paddingRight="2px"
           paddingBottom="20px"
-          paddingLeft="20px"
+          paddingLeft="2px"
         >
           <ArrowRight width={22} height={22} color={Colors.greyForText} />
         </StyledBox>

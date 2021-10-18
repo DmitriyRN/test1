@@ -19,4 +19,5 @@ export const StyledText = styled.Text`
   ${({marginBottom}) =>
     (marginBottom && `margin-bottom:${marginBottom}`) || ''};
   ${({marginLeft}) => (marginLeft && `margin-left:${marginLeft}`) || ''};
+  ${({textAlign}) => textAlign && `text-align:${textAlign}`};
 `;

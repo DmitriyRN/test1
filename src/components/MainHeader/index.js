@@ -1,13 +1,13 @@
 import React from 'react';
 
-import {Colors, strings} from '../../constants';
+import {Colors, routes, strings} from '../../constants';
 import {StyledBox, StyledText} from '../../common-styled-components';
 import Bluetooth from '../../assets/svg/bluetooth.svg';
 import Wifi from '../../assets/svg/wifi.svg';
 import Cloud from '../../assets/svg/cloud.svg';
 import {PrimaryBtn} from '../PrimaryBtn';
 
-export const ArticlesScreenHeader = ({title = '', onPressTitle = () => {}}) => {
+export const MainHeader = ({title = '', onPressTitle = () => {}}) => {
   return (
     <StyledBox
       paddingTop="15px"
@@ -28,7 +28,19 @@ export const ArticlesScreenHeader = ({title = '', onPressTitle = () => {}}) => {
         <Wifi width={50} height={50} color={Colors.darkGrey} />
         <Cloud width={50} height={50} color={Colors.darkGrey} />
       </StyledBox>
-
+      {title === routes.articles ? (
+        <StyledBox
+          marginTop="5px"
+          borderBottomColor={Colors.white}
+          borderBottomWidth="2px"
+        />
+      ) : (
+        <StyledBox
+          marginTop="5px"
+          borderBottomColor={Colors.separatorGrey}
+          borderBottomWidth="2px"
+        />
+      )}
       <StyledBox
         flexDirection="row"
         alignItems="center"
@@ -50,10 +62,17 @@ export const ArticlesScreenHeader = ({title = '', onPressTitle = () => {}}) => {
         >
           {title}
         </StyledText>
-        <PrimaryBtn
-          text={strings.confirm}
-          onPress={() => console.log('confirm')}
-        />
+        {title == routes.articles ? (
+          <PrimaryBtn
+            text={strings.confirm}
+            onPress={() => console.log(strings.confirm)}
+          />
+        ) : (
+          <PrimaryBtn
+            text={strings.prepare}
+            onPress={() => console.log(strings.prepare)}
+          />
+        )}
       </StyledBox>
     </StyledBox>
   );
