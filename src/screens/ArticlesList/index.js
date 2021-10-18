@@ -6,7 +6,7 @@ import {mockArticles} from '../../mockdata/mockArticles';
 import {HeaderComponent} from './HeaderComponent';
 import {FooterComponent} from './FooterComponent';
 import {StyledBox, StyledFlatlist} from '../../common-styled-components';
-import {Colors, strings} from '../../constants';
+import {Colors} from '../../constants';
 
 export const ArticlesList = () => {
   const renderItem = ({item}) => <ArticleItem {...item} />;
@@ -15,7 +15,6 @@ export const ArticlesList = () => {
 
   return (
     <StyledBox justifyContent="center" bgColor={Colors.white} flex={1}>
-      <ArticlesScreenHeader title={strings.articlesInCarton} />
       <StyledFlatlist
         data={mockArticles}
         renderItem={renderItem}

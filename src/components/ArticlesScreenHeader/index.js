@@ -7,7 +7,7 @@ import Wifi from '../../assets/svg/wifi.svg';
 import Cloud from '../../assets/svg/cloud.svg';
 import {PrimaryBtn} from '../PrimaryBtn';
 
-export const ArticlesScreenHeader = ({title = ''}) => {
+export const ArticlesScreenHeader = ({title = '', onPressTitle = () => {}}) => {
   return (
     <StyledBox
       paddingTop="15px"
@@ -42,7 +42,12 @@ export const ArticlesScreenHeader = ({title = ''}) => {
           text={strings.cancel}
           onPress={() => console.log('cancel')}
         />
-        <StyledText fontSize="16px" fontWeight="bold" color={Colors.darkGrey}>
+        <StyledText
+          fontSize="16px"
+          fontWeight="bold"
+          color={Colors.darkGrey}
+          onPress={() => onPressTitle()}
+        >
           {title}
         </StyledText>
         <PrimaryBtn

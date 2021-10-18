@@ -32,7 +32,6 @@ export const SummaryScreen = () => {
 
   return (
     <StyledBox justifyContent="center" bgColor={Colors.white} flex={1}>
-      <ArticlesScreenHeader title={strings.summary} />
       <SwipeableFlatList
         data={mockArticles}
         renderItem={renderItem}
