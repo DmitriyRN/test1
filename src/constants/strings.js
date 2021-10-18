@@ -5,4 +5,5 @@ export const strings = {
   article: 'article',
   act: 'act',
   pullTrigger: 'Pull the trigger to start reading.',
+  summary: 'Summary',
 };

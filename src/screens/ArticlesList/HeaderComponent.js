@@ -1,11 +1,14 @@
-import React from 'react';
-import AwesomeIcon from 'react-native-vector-icons/FontAwesome5';
-import Ionicon from 'react-native-vector-icons/Ionicons';
+import React, {useState} from 'react';
+import SegmentedControl from '@react-native-segmented-control/segmented-control';
 
 import {Colors, strings} from '../../constants';
 import {StyledBox, StyledText} from '../../common-styled-components';
+import Box from '../../assets/svg/box.svg';
+import Label from '../../assets/svg/label.svg';
 
 export const HeaderComponent = () => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
   return (
     <StyledBox borderWidth="2px" borderColor={Colors.separatorGrey}>
       <StyledBox
@@ -19,7 +22,7 @@ export const HeaderComponent = () => {
         bgColor={Colors.lightGrey}
       >
         <StyledBox flexDirection="row" alignItems="center">
-          <AwesomeIcon name="box" size={20} color={Colors.darkGrey} />
+          <Box width={20} height={20} color={Colors.darkGrey} />
           <StyledText
             padding="4px"
             fontSize="12px"
@@ -31,7 +34,7 @@ export const HeaderComponent = () => {
         </StyledBox>
 
         <StyledBox flexDirection="row" alignItems="center">
-          <Ionicon name="pricetag" size={25} color={Colors.darkGrey} />
+          <Label width={20} height={20} color={Colors.darkGrey} />
           <StyledText
             padding="4px"
             fontSize="12px"
@@ -42,6 +45,14 @@ export const HeaderComponent = () => {
           </StyledText>
         </StyledBox>
       </StyledBox>
+
+      <SegmentedControl
+        values={['Cartons', 'Articles']}
+        selectedIndex={selectedIndex}
+        onChange={event =>
+          setSelectedIndex(event.nativeEvent.selectedSegmentIndex)
+        }
+      />
 
       <StyledBox
         flexDirection="row"

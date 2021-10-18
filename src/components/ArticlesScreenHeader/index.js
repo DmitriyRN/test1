@@ -1,15 +1,13 @@
 import React from 'react';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import Ionicon from 'react-native-vector-icons/Ionicons';
 
 import {Colors, strings} from '../../constants';
-import {
-  StyledBox,
-  StyledText,
-  StyledTouchableOpacity,
-} from '../../common-styled-components';
+import {StyledBox, StyledText} from '../../common-styled-components';
+import Bluetooth from '../../assets/svg/bluetooth.svg';
+import Wifi from '../../assets/svg/wifi.svg';
+import Cloud from '../../assets/svg/cloud.svg';
+import {PrimaryBtn} from '../PrimaryBtn';
 
-export const ArticlesScreenHeader = () => {
+export const ArticlesScreenHeader = ({title = ''}) => {
   return (
     <StyledBox
       paddingTop="15px"
@@ -21,14 +19,14 @@ export const ArticlesScreenHeader = () => {
         alignItems="center"
         justifyContent="space-between"
         paddingLeft="5px"
-        paddingRight="5px"
+        paddingRight="15px"
       >
         <StyledBox flexDirection="row" alignItems="center" width="60px">
-          <Ionicon name="bluetooth" size={50} color={Colors.darkGrey} />
+          <Bluetooth width={50} height={50} color={Colors.darkGrey} />
           <StyledText fontSize="20px">100%</StyledText>
         </StyledBox>
-        <Icon name="wifi-tethering" size={50} color={Colors.darkGrey} />
-        <Ionicon name="cloud-done-outline" size={50} color={Colors.darkGrey} />
+        <Wifi width={50} height={50} color={Colors.darkGrey} />
+        <Cloud width={50} height={50} color={Colors.darkGrey} />
       </StyledBox>
 
       <StyledBox
@@ -40,19 +38,17 @@ export const ArticlesScreenHeader = () => {
         paddingBottom="20px"
         paddingLeft="3px"
       >
-        <StyledTouchableOpacity>
-          <StyledText fontSize="16px" fontWeight="bold" color={Colors.blue}>
-            {strings.cancel}
-          </StyledText>
-        </StyledTouchableOpacity>
+        <PrimaryBtn
+          text={strings.cancel}
+          onPress={() => console.log('cancel')}
+        />
         <StyledText fontSize="16px" fontWeight="bold" color={Colors.darkGrey}>
-          {strings.articlesInCarton}
+          {title}
         </StyledText>
-        <StyledTouchableOpacity>
-          <StyledText fontSize="16px" fontWeight="bold" color={Colors.blue}>
-            {strings.confirm}
-          </StyledText>
-        </StyledTouchableOpacity>
+        <PrimaryBtn
+          text={strings.confirm}
+          onPress={() => console.log('confirm')}
+        />
       </StyledBox>
     </StyledBox>
   );

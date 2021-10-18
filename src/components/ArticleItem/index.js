@@ -1,6 +1,5 @@
 import React from 'react';
-import {TouchableOpacity} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import {Pressable} from 'react-native';
 
 import {Colors} from '../../constants';
 import {
@@ -8,6 +7,7 @@ import {
   StyledText,
   StyledImage,
 } from '../../common-styled-components';
+import ArrowRight from '../../assets/svg/arrow-right.svg';
 
 export const ArticleItem = ({
   articleNumber,
@@ -19,7 +19,7 @@ export const ArticleItem = ({
 }) => {
   return (
     <StyledBox
-      as={TouchableOpacity}
+      as={Pressable}
       flexDirection="row"
       alignItems="center"
       paddingTop="3px"
@@ -28,6 +28,7 @@ export const ArticleItem = ({
       paddingLeft="3px"
       borderBottomColor={Colors.separatorGrey}
       borderBottomWidth="2px"
+      bgColor={Colors.white}
     >
       <StyledBox flexDirection="row" alignItems="center">
         <StyledBox
@@ -79,11 +80,7 @@ export const ArticleItem = ({
           paddingBottom="20px"
           paddingLeft="20px"
         >
-          <Icon
-            name="keyboard-arrow-right"
-            size={22}
-            color={Colors.greyForText}
-          />
+          <ArrowRight width={22} height={22} color={Colors.greyForText} />
         </StyledBox>
       </StyledBox>
     </StyledBox>
