@@ -1,4 +1,6 @@
 export const routes = {
-  articles: 'Articles in Carton',
+  articlesInCarton: 'Articles in Carton',
   summary: 'Summary',
+  articles: 'Articles',
+  cartons: 'Cartons',
 };

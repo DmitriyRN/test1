@@ -1,9 +1,10 @@
 import React from 'react';
 
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {ArticlesList, SummaryScreen} from '../screens';
+import {ArticlesList} from '../screens';
 import {MainHeader} from '../components';
 import {routes} from '../constants';
+import {SummaryTabNavigator} from './SummaryTabNavigator';
 
 const Drawer = createDrawerNavigator();
 
@@ -15,12 +16,16 @@ export const DrawerNavigator = () => {
           <MainHeader
             title={route.name}
             onPressTitle={() => navigation.toggleDrawer()}
+            boxNumber={options.boxNumber}
+            articlesCount={options.articlesCount}
+            address={options.address}
+            boxCount={options.boxCount}
           />
         ),
       }}
     >
-      <Drawer.Screen name={routes.articles} component={ArticlesList} />
-      <Drawer.Screen name={routes.summary} component={SummaryScreen} />
+      <Drawer.Screen name={routes.summary} component={SummaryTabNavigator} />
+      <Drawer.Screen name={routes.articlesInCarton} component={ArticlesList} />
     </Drawer.Navigator>
   );
 };
