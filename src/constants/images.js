@@ -1,3 +1,3 @@
 export const images = {
-  longsleeve: require('../assets/longsleeve.jpeg'),
+  longsleeve: require('../assets/images/longsleeve.jpeg'),
 };

@@ -1,15 +1,9 @@
 import React from 'react';
 
-import {ArticlesList} from './src/screens';
-import {StyledSafeAreaView} from './src/common-styled-components';
-import {Colors} from './src/constants';
+import {MainNavigator} from './src/navigation';
 
 const App = () => {
-  return (
-    <StyledSafeAreaView flex={1} bgColor={Colors.lightGrey}>
-      <ArticlesList />
-    </StyledSafeAreaView>
-  );
+  return <MainNavigator />;
 };
 
 export default App;

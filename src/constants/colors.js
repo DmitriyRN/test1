@@ -8,4 +8,5 @@ export const Colors = {
   blueGrey: 'rgb(80, 113, 137)',
   separatorGrey: 'rgb(205, 205, 205)',
   greyForText: 'rgb(141,141,141)',
+  red: 'rgb(236, 79, 56)',
 };

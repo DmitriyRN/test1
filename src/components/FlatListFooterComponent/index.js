@@ -1,9 +1,9 @@
 import React from 'react';
 
-import {Colors, strings} from '../../constants';
+import {Colors} from '../../constants';
 import {StyledBox, StyledText} from '../../common-styled-components';
 
-export const FooterComponent = () => {
+export const FlatListFooterComponent = ({text = ''}) => {
   return (
     <StyledBox
       borderWidth="2px"
@@ -18,14 +18,18 @@ export const FooterComponent = () => {
         borderRadius="5px"
         width="90%"
         alignItems="center"
+        paddingLeft="15px"
+        paddingRight="15px"
+        textAlign="center"
       >
         <StyledText
           padding="20px 0"
           color={Colors.blueGrey}
           fontSize="18px"
           fontWeight="500"
+          textAlign="center"
         >
-          {strings.pullTrigger}
+          {text}
         </StyledText>
       </StyledBox>
     </StyledBox>
