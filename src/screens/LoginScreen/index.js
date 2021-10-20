@@ -8,6 +8,7 @@ import ShowPass from '../../assets/svg/show-pass.svg';
 import HidePass from '../../assets/svg/hide-pass.svg';
 import CheckMark from '../../assets/svg/check-mark.svg';
 import ErrorCheckMark from '../../assets/svg/check-mark-error.svg';
+import {LoginSchema} from '../../utils';
 
 export const LoginScreen = () => {
   const [isVisiblePass, setIsVisiblePass] = useState(false);
@@ -34,9 +35,17 @@ export const LoginScreen = () => {
       </StyledBox>
       <Formik
         initialValues={{email: '', password: ''}}
+        validationSchema={LoginSchema}
         onSubmit={values => console.log(values)}
       >
-        {({handleChange, handleBlur, handleSubmit, values}) => (
+        {({
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          values,
+          errors,
+          touched,
+        }) => (
           <View
             style={{
               justifyContent: 'center',
@@ -183,6 +192,12 @@ export const LoginScreen = () => {
                   height={20}
                   color={Colors.darkGrey}
                 />
+                {errors.email && touched.email ? (
+                  <Text>{errors.email}</Text>
+                ) : null}
+                {errors.password && touched.password ? (
+                  <Text>{errors.password}</Text>
+                ) : null}
               </View>
             </View>
           </View>
