@@ -15,4 +15,10 @@ export const strings = {
   addressLasVegas: '2601 - Las Vegas (tst)',
   prepare: 'Prepare',
   delete: 'Delete',
+  rinRound: '®',
+  d: 'd',
+  username: 'username',
+  password: 'password',
+  login: 'login',
+  forgotPass: 'Forgot Password?',
 };

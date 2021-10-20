@@ -3,4 +3,5 @@ export const routes = {
   summary: 'Summary',
   articles: 'Articles',
   cartons: 'Cartons',
+  login: 'Login',
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {ArticlesList} from '../screens';
+import {ArticlesList, LoginScreen} from '../screens';
 import {MainHeader} from '../components';
 import {routes} from '../constants';
 import {SummaryTabNavigator} from './SummaryTabNavigator';
@@ -24,6 +24,11 @@ export const DrawerNavigator = () => {
         ),
       }}
     >
+      <Drawer.Screen
+        name={routes.login}
+        component={LoginScreen}
+        options={{headerShown: false}}
+      />
       <Drawer.Screen name={routes.summary} component={SummaryTabNavigator} />
       <Drawer.Screen name={routes.articlesInCarton} component={ArticlesList} />
     </Drawer.Navigator>
