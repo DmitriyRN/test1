@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Formik} from 'formik';
+import {Formik, yupToFormErrors} from 'formik';
 import {TouchableOpacity, TextInput, View, Text} from 'react-native';
 
 import {Colors, strings} from '../../constants';
@@ -9,9 +9,11 @@ import HidePass from '../../assets/svg/hide-pass.svg';
 import CheckMark from '../../assets/svg/check-mark.svg';
 import ErrorCheckMark from '../../assets/svg/check-mark-error.svg';
 import {LoginSchema} from '../../utils';
+import {InputRequirementComponent} from '../../components';
 
 export const LoginScreen = () => {
   const [isVisiblePass, setIsVisiblePass] = useState(false);
+
   return (
     <StyledBox>
       <StyledBox
@@ -52,6 +54,7 @@ export const LoginScreen = () => {
               alignItems: 'center',
             }}
           >
+            {/*{yupToFormErrors(errors.password).forEach(i => console.log(i))}*/}
             <View
               style={{
                 width: '90%',
@@ -146,6 +149,102 @@ export const LoginScreen = () => {
                 </TouchableOpacity>
               </View>
               <View>
+                {/*<View*/}
+                {/*  style={{*/}
+                {/*    flexDirection: 'row',*/}
+                {/*    paddingVertical: 5,*/}
+                {/*  }}*/}
+                {/*>*/}
+                <InputRequirementComponent
+                  touched={touched.email}
+                  value={'Require'}
+                  isMatched={values.email.match(/^(?=.*[a-z])/)}
+                />
+                {/*<InputRequirementComponent*/}
+                {/*  touched={touched.password}*/}
+                {/*  value={values.password}*/}
+                {/*  valueType="password"*/}
+                {/*/>*/}
+                {/*<InputRequirementComponent*/}
+                {/*  touched={touched.password}*/}
+                {/*  value={values.email}*/}
+                {/*  valueType="password"*/}
+                {/*/>*/}
+                {/*<InputRequirementComponent*/}
+                {/*  touched={touched.password}*/}
+                {/*  value={values.email}*/}
+                {/*  valueType="password"*/}
+                {/*/>*/}
+                {/*<InputRequirementComponent*/}
+                {/*  touched={touched.password}*/}
+                {/*  value={values.email}*/}
+                {/*  valueType="password"*/}
+                {/*/>*/}
+                {/*<InputRequirementComponent*/}
+                {/*  touched={touched.password}*/}
+                {/*  value={values.email}*/}
+                {/*  valueType="password"*/}
+                {/*/>*/}
+                {/*<InputRequirementComponent*/}
+                {/*  touched={touched.password}*/}
+                {/*  value={values.password}*/}
+                {/*  valueType="password"*/}
+                {/*/>*/}
+                {/*  <View style={{paddingRight: 15}}>*/}
+                {/*    {errors.email && touched.email && (*/}
+                {/*      <ErrorCheckMark*/}
+                {/*        width={20}*/}
+                {/*        height={20}*/}
+                {/*        color={Colors.red}*/}
+                {/*      />*/}
+                {/*    )}*/}
+                {/*    {!errors.email && touched.email && (*/}
+                {/*      <CheckMark width={20} height={20} color={Colors.green} />*/}
+                {/*    )}*/}
+                {/*  </View>*/}
+                {/*  <Text*/}
+                {/*    style={[*/}
+                {/*      errors.email && touched.email && {color: 'red'},*/}
+                {/*      !errors.email && touched.email && {color: 'green'},*/}
+                {/*    ]}*/}
+                {/*  >*/}
+                {/*    {errors.email && touched.email && errors.email}*/}
+                {/*    {!errors.email && touched.email && strings.validEmail}*/}
+                {/*    {!errors.email && !touched.email && strings.validEmail}*/}
+                {/*  </Text>*/}
+                {/*</View>*/}
+
+                {/*<View*/}
+                {/*  style={{*/}
+                {/*    flexDirection: 'row',*/}
+                {/*    paddingVertical: 5,*/}
+                {/*  }}*/}
+                {/*>*/}
+                {/*  <View style={{paddingRight: 15}}>*/}
+                {/*    {errors.password && touched.password && (*/}
+                {/*      <ErrorCheckMark*/}
+                {/*        width={20}*/}
+                {/*        height={20}*/}
+                {/*        color={Colors.red}*/}
+                {/*      />*/}
+                {/*    )}*/}
+                {/*    {!errors.password && touched.password && (*/}
+                {/*      <CheckMark width={20} height={20} color={Colors.green} />*/}
+                {/*    )}*/}
+                {/*  </View>*/}
+                {/*  <Text*/}
+                {/*    style={[*/}
+                {/*      errors.password && touched.password && {color: 'red'},*/}
+                {/*      !errors.password && touched.password && {color: 'green'},*/}
+                {/*    ]}*/}
+                {/*  >*/}
+                {/*    {errors.password && touched.password && errors.password}*/}
+                {/*    {!errors.password && touched.password && strings.validEmail}*/}
+                {/*    {!errors.email && !touched.email && strings.validPassword}*/}
+                {/*  </Text>*/}
+                {/*</View>*/}
+              </View>
+              <View>
                 <TouchableOpacity
                   onPress={handleSubmit}
                   style={{
@@ -186,18 +285,6 @@ export const LoginScreen = () => {
                     {strings.forgotPass}
                   </Text>
                 </TouchableOpacity>
-                <CheckMark width={20} height={20} color={Colors.darkGrey} />
-                <ErrorCheckMark
-                  width={20}
-                  height={20}
-                  color={Colors.darkGrey}
-                />
-                {errors.email && touched.email ? (
-                  <Text>{errors.email}</Text>
-                ) : null}
-                {errors.password && touched.password ? (
-                  <Text>{errors.password}</Text>
-                ) : null}
               </View>
             </View>
           </View>
